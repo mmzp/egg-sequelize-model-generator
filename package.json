@@ -1,0 +1,24 @@
+{
+    "name": "@k-tavern/egg-sequelize-model-generator",
+    "version": "0.0.1",
+    "description": "根据 mysql 建表语句生成 eggjs 框架中适用于 sequelize 的 model 代码文件",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mmzp/egg-sequelize-model-generator.git"
+    },
+    "author": "mmzp <mmzp@qq.com>",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/mmzp/egg-sequelize-model-generator/issues"
+    },
+    "homepage": "https://github.com/mmzp/egg-sequelize-model-generator#readme",
+    "dependencies": {
+        "@k-tavern/sql-parser": "^0.0.3",
+        "pluralize": "^8.0.0"
+    }
+}

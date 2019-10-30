@@ -1,14 +1,15 @@
-CREATE TABLE `tbl1`(
-    id   int(10) unsigned  AUTO_INCREMENT  NOT NULL ,
-    name   varchar(50) default '',
-    weight DECIMAL(5,2),roles_BIT bit(10),
-    size ENUM('x-small', 'small', 'medium', 'large', 'x-large') COMMENT "尺寸",
-    type tinyint(3) unsigned NOT NULL DEFAULT 0  COMMENT '客户端类型，0：未知；1：微信小程序；',
-    `t` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `url` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '地址',
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uniq_name` (`name`),
-    KEY `idx_app_id` (`app_id`,id)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='应用表';
-
-
+CREATE TABLE `wxa_cutomer_service_medias` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `appid` varchar(50) NOT NULL DEFAULT '' COMMENT '小程序ID',
+  `title` varchar(100) NOT NULL DEFAULT '' COMMENT '素材标题',
+  `image_url` varchar(255) NOT NULL DEFAULT '' COMMENT '图片URL',
+  `media_id` varchar(255) NOT NULL DEFAULT '' COMMENT '微信素材ID',
+  `uploaded_at` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '素材上传时间',
+  `expires_at` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '素材过期时间',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态，0：未启用；1：启用；',
+  `updated_at` int(10) unsigned NOT NULL DEFAULT '0',
+  `created_at` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_appid_title` (`appid`,`title`),
+  KEY `idx_expires_at` (`appid`,`expires_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='微信小程序客服素材表';

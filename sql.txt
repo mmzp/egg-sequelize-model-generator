@@ -1,15 +1,11 @@
-CREATE TABLE `wxa_cutomer_service_medias` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `appid` varchar(50) NOT NULL DEFAULT '' COMMENT '小程序ID',
-  `title` varchar(100) NOT NULL DEFAULT '' COMMENT '素材标题',
-  `image_url` varchar(255) NOT NULL DEFAULT '' COMMENT '图片URL',
-  `media_id` varchar(255) NOT NULL DEFAULT '' COMMENT '微信素材ID',
-  `uploaded_at` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '素材上传时间',
-  `expires_at` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '素材过期时间',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态，0：未启用；1：启用；',
-  `updated_at` int(10) unsigned NOT NULL DEFAULT '0',
-  `created_at` int(10) unsigned NOT NULL DEFAULT '0',
+CREATE TABLE `profile_photo` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) NOT NULL DEFAULT '' COMMENT '类别',
+  `url` varchar(255) NOT NULL DEFAULT '' COMMENT '头像地址',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1使用过 0未使用',
+  `useTimes` int(11) NOT NULL DEFAULT '0' COMMENT '使用次数',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uniq_appid_title` (`appid`,`title`),
-  KEY `idx_expires_at` (`appid`,`expires_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='微信小程序客服素材表';
+  UNIQUE KEY `type_url` (`type`, `url`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='马甲头像表';

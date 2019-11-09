@@ -1,11 +1,14 @@
-CREATE TABLE `profile_photo` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `type` varchar(50) NOT NULL DEFAULT '' COMMENT '类别',
-  `url` varchar(255) NOT NULL DEFAULT '' COMMENT '头像地址',
-  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1使用过 0未使用',
-  `useTimes` int(11) NOT NULL DEFAULT '0' COMMENT '使用次数',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+CREATE TABLE `apps` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `icon` varchar(255) NOT NULL DEFAULT '',
+  `created_at` int(10) unsigned NOT NULL,
+  `updated_at` int(10) unsigned NOT NULL,
+  `_` json DEFAULT NULL,
+  `t` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `url` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '地址',
+  `url2` smallint(6) NOT NULL COMMENT '地址',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `type_url` (`type`, `url`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='马甲头像表';
+  UNIQUE KEY `uniq_name` (`name`),
+  KEY `idx_url` (`url`(10))
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='应用表';

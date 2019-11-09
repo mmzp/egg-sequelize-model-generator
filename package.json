@@ -18,7 +18,7 @@
     },
     "homepage": "https://github.com/mmzp/egg-sequelize-model-generator#readme",
     "dependencies": {
-        "@k-tavern/sql-parser": "^0.0.4",
+        "@k-tavern/sql-parser": "^0.0.5",
         "pluralize": "^8.0.0"
     }
 }

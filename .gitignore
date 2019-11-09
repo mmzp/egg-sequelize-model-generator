@@ -62,4 +62,4 @@ typings/
 
 yarn.lock
 package-lock.json
-model/
+model/*.js
